@@ -29,12 +29,148 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.main_Panel = new System.Windows.Forms.Panel();
+            this.lb_Timer = new System.Windows.Forms.Label();
+            this.pnl_PlayStop = new System.Windows.Forms.Panel();
+            this.pnl_Pause = new System.Windows.Forms.Panel();
+            this.mainTimer = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbx_StartStop = new System.Windows.Forms.PictureBox();
+            this.main_Panel.SuspendLayout();
+            this.pnl_PlayStop.SuspendLayout();
+            this.pnl_Pause.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_StartStop)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // main_Panel
+            // 
+            this.main_Panel.BackColor = System.Drawing.Color.White;
+            this.main_Panel.Controls.Add(this.pictureBox2);
+            this.main_Panel.Controls.Add(this.pnl_Pause);
+            this.main_Panel.Controls.Add(this.pnl_PlayStop);
+            this.main_Panel.Controls.Add(this.lb_Timer);
+            this.main_Panel.Location = new System.Drawing.Point(0, 0);
+            this.main_Panel.Name = "main_Panel";
+            this.main_Panel.Size = new System.Drawing.Size(300, 80);
+            this.main_Panel.TabIndex = 0;
+            this.main_Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.main_Panel_Paint);
+            this.main_Panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_MouseDown);
+            this.main_Panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_MouseMove);
+            this.main_Panel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnl_MouseUp);
+            // 
+            // lb_Timer
+            // 
+            this.lb_Timer.AutoSize = true;
+            this.lb_Timer.Font = new System.Drawing.Font("메이플스토리", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_Timer.Location = new System.Drawing.Point(3, 3);
+            this.lb_Timer.Name = "lb_Timer";
+            this.lb_Timer.Size = new System.Drawing.Size(291, 54);
+            this.lb_Timer.TabIndex = 1;
+            this.lb_Timer.Text = "00 : 00 : 00";
+            this.lb_Timer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lb_Timer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_MouseDown);
+            this.lb_Timer.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_MouseMove);
+            this.lb_Timer.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnl_MouseUp);
+            // 
+            // pnl_PlayStop
+            // 
+            this.pnl_PlayStop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.pnl_PlayStop.Controls.Add(this.pbx_StartStop);
+            this.pnl_PlayStop.Location = new System.Drawing.Point(0, 60);
+            this.pnl_PlayStop.Name = "pnl_PlayStop";
+            this.pnl_PlayStop.Size = new System.Drawing.Size(150, 20);
+            this.pnl_PlayStop.TabIndex = 2;
+            this.pnl_PlayStop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayOrStop_Timer);
+            // 
+            // pnl_Pause
+            // 
+            this.pnl_Pause.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.pnl_Pause.Controls.Add(this.pictureBox1);
+            this.pnl_Pause.Location = new System.Drawing.Point(150, 60);
+            this.pnl_Pause.Name = "pnl_Pause";
+            this.pnl_Pause.Size = new System.Drawing.Size(150, 20);
+            this.pnl_Pause.TabIndex = 2;
+            this.pnl_Pause.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Pause_Timer);
+            // 
+            // mainTimer
+            // 
+            this.mainTimer.Interval = 1;
+            this.mainTimer.Tick += new System.EventHandler(this.mainTimer_Tick);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::SimpleTimer.Properties.Resources.Close;
+            this.pictureBox2.Location = new System.Drawing.Point(285, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(15, 15);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbx_Close);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Image = global::SimpleTimer.Properties.Resources.Pause;
+            this.pictureBox1.Location = new System.Drawing.Point(65, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Pause_Timer);
+            // 
+            // pbx_StartStop
+            // 
+            this.pbx_StartStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbx_StartStop.Image = global::SimpleTimer.Properties.Resources.Start;
+            this.pbx_StartStop.Location = new System.Drawing.Point(65, 0);
+            this.pbx_StartStop.Name = "pbx_StartStop";
+            this.pbx_StartStop.Size = new System.Drawing.Size(20, 20);
+            this.pbx_StartStop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbx_StartStop.TabIndex = 0;
+            this.pbx_StartStop.TabStop = false;
+            this.pbx_StartStop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayOrStop_Timer);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(300, 80);
+            this.Controls.Add(this.main_Panel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "Form1";
+            this.Text = "Simple Timer";
+            this.TopMost = true;
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.main_Panel.ResumeLayout(false);
+            this.main_Panel.PerformLayout();
+            this.pnl_PlayStop.ResumeLayout(false);
+            this.pnl_Pause.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_StartStop)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel main_Panel;
+        private System.Windows.Forms.Panel pnl_Pause;
+        private System.Windows.Forms.Panel pnl_PlayStop;
+        private System.Windows.Forms.Label lb_Timer;
+        private System.Windows.Forms.Timer mainTimer;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbx_StartStop;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
