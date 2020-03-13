@@ -61,14 +61,14 @@ namespace SimpleTimer
             if (!isTimerRunning)
             {
                 mainTimer.Start();
-                pbx_StartStop.Load(@"..\..\Images\Stop.png");
+                pbx_StartStop.Image = Properties.Resources.Stop;
                 isTimerRunning = true;
             }
             // Timer Stop
             else
             {
                 mainTimer.Stop();
-                pbx_StartStop.Load(@"..\..\Images\Start.png");
+                pbx_StartStop.Image = Properties.Resources.Start;
                 isTimerRunning = false;
             }
         }
@@ -77,7 +77,7 @@ namespace SimpleTimer
         {
             mainTimer.Stop();
             isTimerRunning = false;
-            pbx_StartStop.Load(@"..\..\Images\Start.png");
+            pbx_StartStop.Image = Properties.Resources.Start;
             timer_ticks = 0;
             // Set Timer 00 : 00 : 00
             lb_Timer.Text = "00 : 00 : 00";
@@ -119,6 +119,11 @@ namespace SimpleTimer
         private void pbx_Close(object sender, MouseEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void pbx_Minimize(object sender, MouseEventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

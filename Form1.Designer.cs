@@ -31,24 +31,27 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.main_Panel = new System.Windows.Forms.Panel();
-            this.lb_Timer = new System.Windows.Forms.Label();
-            this.pnl_PlayStop = new System.Windows.Forms.Panel();
-            this.pnl_Pause = new System.Windows.Forms.Panel();
-            this.mainTimer = new System.Windows.Forms.Timer(this.components);
+            this.pbx_minimize = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pnl_Pause = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnl_PlayStop = new System.Windows.Forms.Panel();
             this.pbx_StartStop = new System.Windows.Forms.PictureBox();
+            this.lb_Timer = new System.Windows.Forms.Label();
+            this.mainTimer = new System.Windows.Forms.Timer(this.components);
             this.main_Panel.SuspendLayout();
-            this.pnl_PlayStop.SuspendLayout();
-            this.pnl_Pause.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnl_Pause.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnl_PlayStop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_StartStop)).BeginInit();
             this.SuspendLayout();
             // 
             // main_Panel
             // 
             this.main_Panel.BackColor = System.Drawing.Color.White;
+            this.main_Panel.Controls.Add(this.pbx_minimize);
             this.main_Panel.Controls.Add(this.pictureBox2);
             this.main_Panel.Controls.Add(this.pnl_Pause);
             this.main_Panel.Controls.Add(this.pnl_PlayStop);
@@ -61,6 +64,72 @@
             this.main_Panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_MouseDown);
             this.main_Panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_MouseMove);
             this.main_Panel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnl_MouseUp);
+            // 
+            // pbx_minimize
+            // 
+            this.pbx_minimize.Image = global::SimpleTimer.Properties.Resources.minimize;
+            this.pbx_minimize.Location = new System.Drawing.Point(285, 16);
+            this.pbx_minimize.Name = "pbx_minimize";
+            this.pbx_minimize.Size = new System.Drawing.Size(15, 15);
+            this.pbx_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbx_minimize.TabIndex = 1;
+            this.pbx_minimize.TabStop = false;
+            this.pbx_minimize.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbx_Minimize);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::SimpleTimer.Properties.Resources.Close;
+            this.pictureBox2.Location = new System.Drawing.Point(285, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(15, 15);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbx_Close);
+            // 
+            // pnl_Pause
+            // 
+            this.pnl_Pause.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.pnl_Pause.Controls.Add(this.pictureBox1);
+            this.pnl_Pause.Location = new System.Drawing.Point(151, 60);
+            this.pnl_Pause.Name = "pnl_Pause";
+            this.pnl_Pause.Size = new System.Drawing.Size(147, 18);
+            this.pnl_Pause.TabIndex = 2;
+            this.pnl_Pause.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Pause_Timer);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Image = global::SimpleTimer.Properties.Resources.Pause;
+            this.pictureBox1.Location = new System.Drawing.Point(67, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Pause_Timer);
+            // 
+            // pnl_PlayStop
+            // 
+            this.pnl_PlayStop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.pnl_PlayStop.Controls.Add(this.pbx_StartStop);
+            this.pnl_PlayStop.Location = new System.Drawing.Point(2, 60);
+            this.pnl_PlayStop.Name = "pnl_PlayStop";
+            this.pnl_PlayStop.Size = new System.Drawing.Size(147, 18);
+            this.pnl_PlayStop.TabIndex = 2;
+            this.pnl_PlayStop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayOrStop_Timer);
+            // 
+            // pbx_StartStop
+            // 
+            this.pbx_StartStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbx_StartStop.Image = global::SimpleTimer.Properties.Resources.Start;
+            this.pbx_StartStop.Location = new System.Drawing.Point(67, 0);
+            this.pbx_StartStop.Name = "pbx_StartStop";
+            this.pbx_StartStop.Size = new System.Drawing.Size(18, 18);
+            this.pbx_StartStop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbx_StartStop.TabIndex = 0;
+            this.pbx_StartStop.TabStop = false;
+            this.pbx_StartStop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayOrStop_Timer);
             // 
             // lb_Timer
             // 
@@ -76,65 +145,10 @@
             this.lb_Timer.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_MouseMove);
             this.lb_Timer.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnl_MouseUp);
             // 
-            // pnl_PlayStop
-            // 
-            this.pnl_PlayStop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.pnl_PlayStop.Controls.Add(this.pbx_StartStop);
-            this.pnl_PlayStop.Location = new System.Drawing.Point(0, 60);
-            this.pnl_PlayStop.Name = "pnl_PlayStop";
-            this.pnl_PlayStop.Size = new System.Drawing.Size(150, 20);
-            this.pnl_PlayStop.TabIndex = 2;
-            this.pnl_PlayStop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayOrStop_Timer);
-            // 
-            // pnl_Pause
-            // 
-            this.pnl_Pause.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.pnl_Pause.Controls.Add(this.pictureBox1);
-            this.pnl_Pause.Location = new System.Drawing.Point(150, 60);
-            this.pnl_Pause.Name = "pnl_Pause";
-            this.pnl_Pause.Size = new System.Drawing.Size(150, 20);
-            this.pnl_Pause.TabIndex = 2;
-            this.pnl_Pause.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Pause_Timer);
-            // 
             // mainTimer
             // 
-            this.mainTimer.Interval = 1;
+            this.mainTimer.Interval = 1000;
             this.mainTimer.Tick += new System.EventHandler(this.mainTimer_Tick);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::SimpleTimer.Properties.Resources.Close;
-            this.pictureBox2.Location = new System.Drawing.Point(285, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(15, 15);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbx_Close);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Image = global::SimpleTimer.Properties.Resources.Pause;
-            this.pictureBox1.Location = new System.Drawing.Point(65, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Pause_Timer);
-            // 
-            // pbx_StartStop
-            // 
-            this.pbx_StartStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pbx_StartStop.Image = global::SimpleTimer.Properties.Resources.Start;
-            this.pbx_StartStop.Location = new System.Drawing.Point(65, 0);
-            this.pbx_StartStop.Name = "pbx_StartStop";
-            this.pbx_StartStop.Size = new System.Drawing.Size(20, 20);
-            this.pbx_StartStop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbx_StartStop.TabIndex = 0;
-            this.pbx_StartStop.TabStop = false;
-            this.pbx_StartStop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PlayOrStop_Timer);
             // 
             // Form1
             // 
@@ -152,10 +166,11 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.main_Panel.ResumeLayout(false);
             this.main_Panel.PerformLayout();
-            this.pnl_PlayStop.ResumeLayout(false);
-            this.pnl_Pause.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbx_minimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnl_Pause.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnl_PlayStop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbx_StartStop)).EndInit();
             this.ResumeLayout(false);
 
@@ -171,6 +186,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pbx_StartStop;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pbx_minimize;
     }
 }
 
